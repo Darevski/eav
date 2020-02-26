@@ -31,7 +31,7 @@ class Attribute extends Model
         'backend_table', 'frontend_class', 'frontend_type',
         'frontend_label', 'source_class',  'default_value',
         'is_filterable', 'is_searchable',  'is_required',
-        'required_validate_class', 'entity_id'
+        'required_validate_class', 'entity_id', 'orchid_layout'
     ];
 
     /**
@@ -75,7 +75,26 @@ class Attribute extends Model
      * @var string
      */
     protected $dataTable  = null;
+    
+    /**
+     * @alias getOrchidLayout()
+     */
+    public function orchidLayout()
+    {
+        return $this->getBackendType();
+    }
 
+    /**
+     * Retreive Orchid Layout
+     *
+     * @return string
+     */
+    public function getOrchidLayout()
+    {
+        return $this->getAttribute('orchid_layout');
+    }
+    
+    
     /**
      * Proxy to get the attribute code.
      *
